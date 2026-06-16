@@ -1,7 +1,9 @@
 import express from "express";
 import { errorHandler } from "./src/middlewares/errorHandler.js";
 import morgan from "morgan";
-import responseMiddleware from "./src/middlewares/response.js";
+import helmet from "helmet";
+import cors from "cors";
+import { responseMiddleware } from "./src/middlewares/response.js";
 import requestId from "./src/middlewares/requestId.js";
 import httpLogger from "./src/middlewares/httpLogger.js";
 import AppError from "./src/utils/AppError.js";
@@ -83,9 +85,9 @@ app.use("/api/health", (req, res) => {
     res.json({ status: "ok", timestamp: new Date().toISOString() });
 });
 
-app.all("*", (req, res, next) => {
-    next(AppError.notFound(`Route ${req.method} ${req.originalUrl} not found`));
-});
+// app.all("*", (req, res, next) => {
+//     next(AppError.notFound(`Route ${req.method} ${req.originalUrl} not found`));
+// });
 app.use(errorHandler);
 
 export default app;
