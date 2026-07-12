@@ -43,6 +43,11 @@ class AuthService {
         );
 
         // It should be returning access token and refresh token both, but for now we are only returning access token
+
+        // const token = {
+        //     accessToken: '',
+        //     refreshToken: '',
+        // }
         return token;
     }
 
@@ -81,5 +86,4 @@ class AuthService {
         return user;
     }
 
-    async 
 }

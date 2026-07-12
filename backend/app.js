@@ -74,20 +74,20 @@ const corsOptions = {
 app.use(cors(corsOptions));
 
 // Handle preflight requests
-app.options("*", cors(corsOptions));
+// app.options("*", cors(corsOptions));
 
-app.use(morgan("combined"));
+app.use(morgan("dev"));
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 app.use("/api/health", (req, res) => {
-    res.json({ status: "ok", timestamp: new Date().toISOString() });
+    res.status(200).json({ message: "healthy", timestamp: new Date().toISOString() });
 });
 
-// app.all("*", (req, res, next) => {
-//     next(AppError.notFound(`Route ${req.method} ${req.originalUrl} not found`));
-// });
+app.use((req, res, next) => {
+    next(AppError.notFound(`Route ${req.method} ${req.originalUrl} not found`));
+});
 app.use(errorHandler);
 
 export default app;
