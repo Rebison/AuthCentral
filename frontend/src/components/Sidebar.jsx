@@ -13,12 +13,12 @@ const Sidebar = () => {
     ]
 
     const footerItems = [
-        { label: 'Settings', path: '/settings', icon: <IoMdSettings /> },
+        { label: 'logout', path: '/settings', icon: <IoMdSettings /> },
     ]
 
     const MenuItem = ({ label, path, icon }) => {
         return (
-            <div className={`mb-2 cursor-pointer hover:bg-[#935cff] p-2 rounded ${selectedItem === label ? 'bg-[#854aff]' : ''}`}>
+            <div className={`mb-2 cursor-pointer hover:bg-blue-500 p-2 rounded ${selectedItem === label ? 'bg-blue-600' : ''}`}>
                 <div className='flex justify-between items-center gap-2'>
                     <div className={``}>
                         {icon}

@@ -19,7 +19,7 @@ const Navbar = () => {
     <div className='bg-white text-gray-800 p-2 shadow-md'>
       <div className='flex justify-between items-center'>
         <div className='flex items-center border border-[#1f2154] rounded-full'>
-          <form action="/search-result" method="get">
+          <form action="/search-result" method="get" className='flex items-center'>
             <input type="search" placeholder='Search' className='border-none outline-none ml-2 placeholder:text-[#1f2154]' />
             <button type="submit" className='p-2 rounded-full bg-[#1f2154] cursor-pointer'>
               <FaSearch className='text-white' />
